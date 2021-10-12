@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出國須知</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .all_background_color{
+            background-color: rgb(238, 238, 238);
+        }
+        .title_bar{
+            margin: auto;
+            display: flex;
+            align-items: center; 
+            background-color: #aaa; 
+            margin: 0 15px;
+            position: fixed;
+            margin: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+        .title_bar .logo{
+            margin: 5px 20px;
+            width: 140px;
+            height: 50px;
+        }
+        .title_bar .logo img{
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+        .title_bar .search{
+            flex-grow: 1;
+        }
+        .title_bar .login a{
+            text-decoration: none;
+            font-size: 16px;
+            border: 2px;
+            border-radius: 15px;
+            background-color: rgb(248, 141, 0);
+            color: white;
+            padding: 10px;
+            margin-right: 15px;
+        }
+        .title_bar .login a:hover{
+            background-color: red;
+        }
+        .second_bar{
+            display: flex;
+            margin: 0 30px;
+            /* background-color: rgb(218, 139, 139); */
+            background-color: rgb(180, 179, 179); 
+            position: fixed;
+            margin: 0;
+            top: 60px;
+            left: 0;
+            right: 0;
+            z-index: 1;
+
+        }
+        .second_bar a{
+            text-decoration: none;
+            padding: 10px;
+            font-size: 16px;
+            color: black;
+        }
+        /* .second_bar a:hover{
+            background-color: rgb(218, 216, 216);
+        } */
+        .second_bar img{
+            width: 15px;
+            height: 15px;
+            vertical-align: top;
+        }
+        .banner{
+            height: 600px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .banner img{
+            width: 100%;
+            height: 100%;
+        }
+        .discover_txt{
+            width: 300px;
+            margin: auto;
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            margin: 0;
+            top: 230px;
+            left: 200px;
+        }
+        .discover{
+            display: flex;
+            width: 775px;
+            height: 48px;
+            margin: auto;
+            padding: 5px;
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            align-items: center;
+            position: absolute;
+            margin: 0;
+            top: 330px;
+            left: 200px;
+        }
+        .discover_search_btn{
+            width: 70px;
+            height: 30px;
+            background-color: orange;
+            border: 1px solid orange;
+            border-radius: 5px;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .discover_search_btn a{
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+        .bread{
+            width: 1200px;
+            margin: auto;
+            margin-bottom: 40px;
+        }
+        .bread a{
+            text-decoration: none;
+            padding: 5px;
+            color: cornflowerblue;
+        }
+        .should_know{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            margin-bottom: 80px;
+        }
+        .should_know .label{
+            width: 200px;
+        }
+        .should_know .label .label_item{
+            font-size: 30px;
+            color: white;
+            text-align: center;
+        }
+        .should_know .label .label_item .license{
+            background-color: rgb(245, 128, 128);
+            padding: 15px;
+        }
+        .should_know .label .label_item .votage{
+            background-color: rgb(128, 208, 245);
+            padding: 15px;
+        }
+        /* .should_know .label .label_item .card{
+            background-color: rgb(222, 128, 245);
+            padding: 15px;
+        } */
+        .should_know .label .label_item .transport{
+            background-color: rgb(116, 248, 127);
+            padding: 15px;
+        }
+        .should_know .content{
+            width: 1000px;
+            height: 1100px;
+            background-color: rgb(245, 128, 128);
+        }
+        .should_know .content .content_pic{
+            width: 900px;
+            display: flex;
+            margin: auto;
+            background-color: white;
+            margin-bottom: 50px;
+            margin-top: 30px;
+            padding: 10px;
+        }
+        .should_know .content .content_pic .main_pic{
+            width: 650px;
+            height: 500px;
+        }
+        .should_know .content .content_pic .main_pic img{
+            width: 100%;
+            height: 100%;
+        }
+        .should_know .content .content_pic .second_pic{
+            width: 250px;
+            height: 500px;
+        }
+        .should_know .content .content_pic .second_pic .second_pic_item{
+            width: 250px;
+            height: 250px;
+        }
+        .should_know .content .content_pic .second_pic .second_pic_item img{
+            width: 100%;
+            height: 100%;
+        }
+        .content .content_cautions{
+            width: 900px;
+            margin: auto;
+        }
+        .content .content_cautions .content_cautions_txt h2{
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+        .content .content_cautions .content_cautions_txt ol li{
+            font-size: 18px;
+            margin: 5px;
+            line-height: 1.2em;
+        }
+        .content .content_cautions .content_cautions_txt ol{
+            padding: 15px;
+        }
+        .content .content_cautions .content_cautions_txt ul li{
+            font-size: 18px;
+            margin: 5px;
+            line-height: 1.2em;
+        }
+        .content .content_cautions .content_cautions_txt ul{
+            padding: 15px;
+        }
+        .footer_color{
+            width: 100%;
+            background-color: rgb(117, 117, 117);
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .footer_bar{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .footer_bar .footer_logo{
+            width: 140px;
+            height: 50px;
+            margin-right: auto;
+        }
+        .footer_bar .footer_logo img{
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+        .footer_bar h2{
+            margin-right: 5px;
+            color: white;
+        }
+        .footer_bar button{
+            font-size: 16px;
+            width: 50px;
+            height: 35px;
+            background-color: orange;
+            color: white;
+        }
+        .about{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+        }
+        .know_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .together_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .use_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact_us{
+            width: 300px;
+        }
+        .footer .about p{
+            font-size: 16px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .footer .about a{
+            text-decoration: none;
+            font-size: 15px;
+            color:black;
+            padding: 5px;    
+        }
+        .app{
+            display: flex;
+        }
+        .app .app_pic{
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+        }
+        .app .app_pic img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="all_background_color">
+        <div class="title_bar">
+            <div class="logo">
+                <a href="首頁.html">
+                    <img src="pic/sometrip.png" alt="">
+                </a>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="探索目的地/活動" style ="font-size:16px;height:30px;width:200px;border-radius: 15px; border: 1px solid white;">
+            </div>
+            <div class="login">
+                <a href="#">登入</a>
+            </div>
+        </div>
+        <nav class="second_bar">
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">
+                <img src="pic/locate.png" alt="">
+                探索目的地
+            </a>
+            <a href="特色體驗.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">特色體驗</a>
+            <a href="美食品嘗.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">美食品嘗</a>
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">交通</a>
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">住宿</a>
+            <a href="網路卡.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">網路卡</a>
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">出國須知</a>
+        </nav>
+        <div class="banner">
+            <img src="pic/飛機.jpg" alt="">
+            <div class="discover_txt">出國須知</div>
+            <div class="discover">
+                <div class="discover_search">
+                    <input type="text" placeholder="想知道什麼?" style ="font-size:20px;height:50px;width:700px; border: 1px white;">
+                </div>
+                <div class="discover_search_btn">
+                    <a href="#">搜尋</a>
+                </div>
+            </div>
+        </div>
+        <div class="bread">
+            <a href="#">SOMETRIP ></a>
+            <a href="#" style="color: gray;">出國須知</a>
+        </div>
+        <div class="should_know">
+            <div class="label">
+                <div class="label_item">
+                    <div class="license">
+                        <a href="#" style="text-decoration: none; color: white;"><h2>國際駕照</h2></a>
+                    </div>
+                </div>
+                <div class="label_item">
+                    <div class="votage">
+                        <a href="#" style="text-decoration: none; color: white;"><h2>電壓轉換</h2></a>
+                    </div>
+                </div>
+                <!-- <div class="label_item">
+                    <div class="card">
+                        <a href="#" style="text-decoration: none; color: white;"><h2>電話/網路卡</h2></a>
+                    </div>
+                </div> -->
+                <div class="label_item">
+                    <div class="transport">
+                        <a href="#" style="text-decoration: none; color: white;"><h2>交通app</h2></a>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content_pic">
+                    <div class="main_pic">
+                        <img src="pic/駕照.jpg" alt="">
+                    </div>
+                    <div class="second_pic">
+                        <div class="second_pic_item">
+                            <img src="pic/國際駕照2.jpg" alt="">
+                        </div>
+                        <div class="second_pic_item">
+                            <img src="pic/國際駕照.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="content_cautions">
+                    <div class="content_cautions_txt">
+                        <h2>申請國際駕照流程</h2>
+                        <ol>
+                            <li>帶著需帶身份證明文件正本、照片、駕照正本、護照影本，以及申請費用</li>
+                            <li>到監理站的「駕照綜合窗口」辦理國際駕照</li>
+                            <li>填寫申請國際駕照表格</li>
+                            <li>拿到國際駕照的本子後，裡面會列出各國語言寫的條例規範，請打開最後一頁確定所申請的駕照（A格子蓋的是機車駕照，B格子蓋的是汽車駕照）</li>
+                            <li>若無問題，在照片底下的地方簽名就可以了</li>
+                            <li>申請時間：約一小時</li>
+                        </ol>
+                        <h2>申請國際駕照注意事項</h2>
+                        <ul>
+                            <li>效期：國際駕照有效期為三年，若過期則須重新辦理</li>
+                            <li>國內駕照被吊銷或註銷者，就不能申請國際駕照</li>
+                            <li>如果有違規罰款案件，應該先到監理所或裁決所處理結案</li>
+                            <li>若「國內駕照已逾有效日期」、「職業駕照審驗日期已逾期或將屆滿」或「國內普通駕照有效期限雖未逾期，但不足3年者」，請先行辦理換照或完成審驗後，再申請國際駕照</li>
+                            <li>國內駕照為「輕型機車」或「普通輕型機車」者，無法申請國際駕照</li>
+                            <li>有些國家不承認台灣的駕照喔，請參考主要國家駕照互惠情形一覽表的資料內容</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_color">
+            <div class="footer">
+                <div class="footer_bar">
+                    <div class="footer_logo">
+                        <img src="pic/sometrip.png" alt="">
+                    </div>
+                    <h2>立即收到最新資訊</h2>
+                    <div class="subscribe">
+                        <input type="text" placeholder="輸入電子信箱" style ="font-size:16px;height:30px;width:200px; border: 1px solid black;">
+                    </div>
+                    <button>訂閱</button>
+                </div>
+                <div class="about">
+                    <div class="know_sometrip">
+                        <p>認識SOMETRIP</p>
+                        <a href="#">關於SOMETRIP</a>
+                        <a href="#">SOMETRIP旅遊攻略</a>
+                        <a href="#">加入SOMETRIP</a>
+                    </div>
+                    <div class="together_sometrip">
+                        <p>攜手SOMETRIP</p>
+                        <a href="#">供應商註冊</a>
+                        <a href="#">供應商登入</a>
+                        <a href="#">聯合行銷</a>
+                        <a href="#">名人合作</a>
+                        <a href="#">同業交易</a>
+                        <a href="#">數位解決方案</a>
+                        <a href="#">分銷&行銷提案</a>
+                    </div>
+                    <div class="use_sometrip">
+                        <p>使用條款</p>
+                        <a href="#">使用條款</a>
+                        <a href="#">隱私政策</a>
+                        <a href="#">Cookie政策</a>
+                        <a href="#">技術問題懸賞方案</a>
+                    </div>
+                    <div class="contact_us">
+                        <p>聯絡我們</p>
+                        <div class="app">
+                            <div class="app_pic">
+                                <img src="pic/facebook.png" alt="">
+                            </div>
+                            <div class="app_pic">
+                                <img src="pic/instagram.png" alt="">
+                            </div>
+                            <div class="app_pic">
+                                <img src="pic/twitter.png" alt="">
+                            </div>
+                            <div class="app_pic">
+                                <img src="pic/wechat.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

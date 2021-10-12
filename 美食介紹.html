@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美食介紹</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .all_background_color{
+            background-color: rgb(238, 238, 238);
+        }
+        .title_bar{
+            margin: auto;
+            display: flex;
+            align-items: center; 
+            background-color: #aaa; 
+            margin: 0 15px;
+            position: fixed;
+            margin: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+        .title_bar .logo{
+            margin: 5px 20px;
+            width: 140px;
+            height: 50px;
+        }
+        .title_bar .logo img{
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+        .title_bar .search{
+            flex-grow: 1;
+        }
+        .title_bar .login a{
+            text-decoration: none;
+            font-size: 16px;
+            border: 2px;
+            border-radius: 15px;
+            background-color: rgb(248, 141, 0);
+            color: white;
+            padding: 10px;
+            margin-right: 15px;
+        }
+        .title_bar .login a:hover{
+            background-color: red;
+        }
+        .second_bar{
+            display: flex;
+            margin: 0 30px;
+            /* background-color: rgb(218, 139, 139); */
+            background-color: rgb(180, 179, 179); 
+            position: fixed;
+            margin: 0;
+            top: 60px;
+            left: 0;
+            right: 0;
+            z-index: 1;
+
+        }
+        .second_bar a{
+            text-decoration: none;
+            padding: 10px;
+            font-size: 16px;
+            color: black;
+        }
+        /* .second_bar a:hover{
+            background-color: rgb(218, 216, 216);
+        } */
+        .second_bar img{
+            width: 15px;
+            height: 15px;
+            vertical-align: top;
+        }
+        .trip_pic{
+            width: 1200px;
+            height: 600px;
+            margin: auto;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .trip_pic img{
+            width: 100%;
+            height: 100%;
+        }
+        .next_btn{
+            width: 45px;
+            height: 45px;
+            border: 1px solid white;
+            border-radius: 50%;
+            background-color: rgb(218, 218, 218);
+            position: absolute;
+            margin: 0;
+            top: 325px;
+            left: 1182px;
+        }
+        .next_btn a img{
+            width: 35px;
+            height: 35px;
+            padding-left: 9px;
+            padding-top: 5px;
+        }.next_btn1{
+            width: 45px;
+            height: 45px;
+            border: 1px solid white;
+            border-radius: 50%;
+            background-color: rgb(218, 218, 218);
+            position: absolute;
+            margin: 0;
+            top: 325px;
+            left: -30px;
+        }
+        .next_btn1 a img{
+            width: 35px;
+            height: 35px;
+            padding-left: 3px;
+            padding-top: 5px;
+        }
+        .bread{
+            width: 1200px;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        .bread a{
+            text-decoration: none;
+            padding: 5px;
+            color: cornflowerblue;
+        }
+        .introduce{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+        }
+        .introduce_content{
+            width: 880px;
+            margin-right: 20px;
+        }
+        .introduce_content .introduce_content_title{
+            margin-bottom: 20px;
+        }
+        .introduce_content .introduce_content_title h1{
+            font-size: 40px;
+        }
+        .mylove{
+            font-size: 18px;
+            margin-left: 5px;
+            color: gray;
+            margin-bottom: 20px;
+        }
+        .locate_item{
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .locate_item .locate{
+            display: flex;
+            align-items: center;
+            margin-right: 50px;
+        }
+        .locate_item .locate img{
+            width: 25px;
+            height: 25px;
+            margin-right: 15px;
+        }
+        .locate_item .locate h2{
+            font-size: 18px;
+        }
+        .locate_item .food{
+            display: flex;
+            align-items: center;
+        }
+        .locate_item .food img{
+            width: 25px;
+            height: 25px;
+            margin-right: 15px;
+        }
+        .locate_item .food h2{
+            font-size: 18px;
+        }
+        .points_item{
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        .points_item .score{
+            margin-right: 20px;
+        }
+        .points_item .score p{
+            font-size: 40px;
+        }
+        .points_item .points_star h1{
+            font-size: 24px;
+            color: orange;
+            margin-bottom: 5px;
+        }
+        .points_item .points_star .comments_item{
+            display: flex;
+        }
+        .points_item .points_star .comments_item .comments p{
+            font-size: 14px;
+            color: grey;
+            margin-right: 15px;
+        }
+        .points_item .points_star .comments_item .join p{
+            font-size: 14px;
+            color: grey;
+        }
+        .must_eat{
+            height: 50px;
+            border: 1px solid grey;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0,0,0,.1);
+        }
+        .must_eat p{
+            margin-left: 20px;
+        }
+        .recommend_reason{
+            height: 50px;
+            border: 1px solid grey;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            box-shadow: 0 0 30px rgba(0,0,0,.1);
+        }
+        .recommend_reason p{
+            margin-left: 20px;
+        }
+
+        .flag{
+            width: 70px;
+            background-color: orange;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            position: relative;
+            margin-top: -50px;
+            margin-left: -10px;
+            font-weight: bold;
+        }
+        .angle{
+            width: 0;
+            height: 0;
+            border-top: 10px solid red;
+            /* border-right: 10px solid red; */
+            /* border-bottom: 10px solid red; */
+            border-left: 10px solid transparent;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+        }
+        .address{
+            margin-bottom: 40px;
+        }
+        .address h1{
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        .address p{
+            font-size: 18px;
+            color: grey;
+            margin-bottom: 20px;
+        }
+        .address img{
+            width: 880px;
+        }
+        .how_to_use{
+            margin-bottom: 50px;
+        }
+        .how_to_use h1{
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+        .how_to_use h2{
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .how_to_use ul{
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        .how_to_use li{
+            margin: 20px;
+        }
+        .how_to_use p{
+            
+            margin: 15px;
+            margin-left: 40px;
+        }
+
+        .introduce_price .price{
+            height: 200px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin-bottom: 10px;
+        }
+        .introduce_price p{
+            margin-bottom: 10px;
+        }
+        .introduce_price .price h1{
+            font-size: 25px;
+            flex-grow: 1;
+        }
+        .introduce_price .clock{
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .introduce_price .clock h1{
+            font-size: 20px;
+        }
+        .introduce_price .clock p{
+            font-size: 14px;
+            color: gray;
+        }
+        .introduce_price .confirm{
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .introduce_price .confirm h1{
+            font-size: 20px;
+        }
+        .introduce_price .confirm p{
+            font-size: 14px;
+            color: gray;
+        }
+        .introduce_price .select{
+            width: 280px;
+            height: 43px;
+            border: 1px solid orange;
+            border-radius: 5px;
+            background-color: orange;
+        }
+        .introduce_price .select h2{
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            padding-top: 12px;
+        }
+        .introduce_price .first_app{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+        .introduce_price .first_app img{
+            width: 60px;
+            height: 50px;
+        }
+        .introduce_price .first_app p{
+            font-size: 16px;
+            line-height: 1.2em;
+        }
+        .footer_color{
+            width: 100%;
+            background-color: rgb(117, 117, 117);
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .footer_bar{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .footer_bar .footer_logo{
+            width: 140px;
+            height: 50px;
+            margin-right: auto;
+        }
+        .footer_bar .footer_logo img{
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+        .footer_bar h2{
+            margin-right: 5px;
+            color: white;
+        }
+        .footer_bar button{
+            font-size: 16px;
+            width: 50px;
+            height: 35px;
+            background-color: orange;
+            color: white;
+        }
+        .about{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+        }
+        .know_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .together_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .use_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact_us{
+            width: 300px;
+        }
+        .footer .about p{
+            font-size: 16px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .footer .about a{
+            text-decoration: none;
+            font-size: 15px;
+            color:black;
+            padding: 5px;    
+        }
+        .app{
+            display: flex;
+        }
+        .app .app_pic{
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+        }
+        .app .app_pic img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="all_background_color">
+        <div class="title_bar">
+            <div class="logo">
+                <a href="首頁.html">
+                    <img src="pic/sometrip.png" alt="">
+                </a>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="搜尋台北的活動" style ="font-size:16px;height:30px;width:200px;border-radius: 15px; border: 1px solid white;">
+            </div>
+            <div class="login">
+                <a href="#">登入</a>
+            </div>
+        </div>
+        <nav class="second_bar">
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">
+                <img src="pic/locate.png" alt="">
+                探索目的地
+            </a>
+            <a href="特色體驗.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">特色體驗</a>
+            <a href="美食品嘗.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">美食品嘗</a>
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">交通</a>
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">住宿</a>
+            <a href="網路卡.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">網路卡</a>
+            <a href="出國須知.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">出國須知</a>
+        </nav>
+
+        <div class="trip_pic">
+            <img src="pic/動飯.jpg" alt="">
+            <div class="next_btn">
+                <a href="#">
+                <img src="pic/next.png" alt="">
+                </a>
+            </div>
+            <div class="next_btn1">
+                <a href="#">
+                <img src="pic/next1.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="bread">
+            <a href="#">SOMETRIP ></a>
+            <a href="#">台北 ></a>
+            <a href="#">美食品嘗 ></a>
+            <a href="#" style="color: gray;">大和丼 台北合江店｜捷運中山國中站</a>
+        </div>
+
+        <div class="introduce">
+            <div class="introduce_content">
+               <div class="introduce_content_title">
+                   <h1>大和丼 台北合江店｜捷運中山國中站</h1>
+               </div>
+               <div class="mylove">
+                   <p>♡加入我的最愛</p>
+               </div>
+               <div class="locate_item">
+                   <div class="locate">
+                       <img src="pic/pin.png" alt="">
+                       <h2>中山區</h2>
+                   </div>
+                   <div class="food">
+                       <img src="pic/bell-ring.png" alt="">
+                       <h2>丼飯·咖哩</h2>
+                   </div>
+               </div>
+               <div class="points_item">
+                    <div class="score">
+                        <p>5.0</p>
+                    </div>
+                    <div class="points_star">
+                        <h1>★★★★★</h1>
+                        <div class="comments_item">
+                            <div class="comments">
+                                <p>3則評價</p>
+                            </div>
+                            <div class="join">
+                                <p>50+ 人參加過</p>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+               <div class="must_eat">
+                   <div class="flag">
+                            必吃
+                        <div class="angle"></div>
+                    </div>
+                    <p>牛丼 · 親子丼 · 咖哩豬排飯</p>
+               </div>
+               
+               <div class="recommend_reason">
+                    <div class="flag">
+                            推薦原因
+                        <div class="angle"></div>
+                    </div>
+                    <p>好吃丼飯推薦大和丼，有多種丼飯、炸物及咖哩，平價實惠又美味！</p>
+               </div>
+
+               <div class="how_to_use">
+                <h1>如何使用</h1>
+                <h2>兌換指南</h2>
+                <h2>大和丼 台北合江店</h2>
+                <ul>
+                    <li>地址：台北市中山區合江街69-1號</li>
+                    <li>如何前往：自捷運中山自捷運中山國中站步行前往約10分鐘可抵達</li>
+                    <li>開放時間：</li>
+                </ul>
+                <p>週一至週五11:00 - 14:00</p>
+                <p>週一至週五17:00 - 20:30</p>
+                <p>週六：11:00 - 14:00</p>
+                <p>週日：17:00 - 21:00</p>
+                </div> 
+               <div class="address">
+                   <h1>地址</h1>
+                   <p>台北市中山區合江街69-1號</p>
+                   <img src="pic/mapfood.jpg" alt="">
+               </div>
+               
+            </div>
+            <div class="introduce_price">
+                <div class="price">
+                    <p style="color: rgb(148, 147, 147);">最優質價格保證</p>
+                    <h1>方案優惠</h1>
+                    <div class="clock">
+                        <h1>現金券</h1>
+                        <p>NT$ 75</p>
+                    </div>
+                    <div class="confirm">
+                        <h1>單點</h1>
+                        <p>NT$ 90</p>
+                    </div>
+                    <div class="select">
+                        <h2>選擇方案組合</h2>
+                    </div>
+                </div>
+                <div class="first_app">
+                    <img src="pic/download.png" alt="">
+                    <p>手機App首次預訂輸入優惠碼<span style="color: red;">SomeTripGo</span>可享5%折扣</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer_color">
+            <div class="footer">
+                <div class="footer_bar">
+                    <div class="footer_logo">
+                        <img src="pic/sometrip.png" alt="">
+                    </div>
+                    <h2>立即收到最新資訊</h2>
+                    <div class="subscribe">
+                        <input type="text" placeholder="輸入電子信箱" style ="font-size:16px;height:30px;width:200px; border: 1px solid black;">
+                    </div>
+                    <button>訂閱</button>
+                </div>
+                <div class="about">
+                    <div class="know_sometrip">
+                        <p>認識SOMETRIP</p>
+                        <a href="#">關於SOMETRIP</a>
+                        <a href="#">SOMETRIP旅遊攻略</a>
+                        <a href="#">加入SOMETRIP</a>
+                    </div>
+                    <div class="together_sometrip">
+                        <p>攜手SOMETRIP</p>
+                        <a href="#">供應商註冊</a>
+                        <a href="#">供應商登入</a>
+                        <a href="#">聯合行銷</a>
+                        <a href="#">名人合作</a>
+                        <a href="#">同業交易</a>
+                        <a href="#">數位解決方案</a>
+                        <a href="#">分銷&行銷提案</a>
+                    </div>
+                    <div class="use_sometrip">
+                        <p>使用條款</p>
+                        <a href="#">使用條款</a>
+                        <a href="#">隱私政策</a>
+                        <a href="#">Cookie政策</a>
+                        <a href="#">技術問題懸賞方案</a>
+                    </div>
+                    <div class="contact_us">
+                        <p>聯絡我們</p>
+                        <div class="app">
+                            <div class="app_pic">
+                                <img src="pic/facebook.png" alt="">
+                            </div>
+                            <div class="app_pic">
+                                <img src="pic/instagram.png" alt="">
+                            </div>
+                            <div class="app_pic">
+                                <img src="pic/twitter.png" alt="">
+                            </div>
+                            <div class="app_pic">
+                                <img src="pic/wechat.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

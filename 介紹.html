@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>94折起|夏日限定璀璨之海|墾丁</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .all_background_color{
+            background-color: rgb(238, 238, 238);
+        }
+        .title_bar{
+            margin: auto;
+            display: flex;
+            align-items: center; 
+            background-color: #aaa; 
+            margin: 0 15px;
+            position: fixed;
+            margin: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+        .title_bar .logo{
+            margin: 5px 20px;
+            width: 140px;
+            height: 50px;
+        }
+        .title_bar .logo img{
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+        .title_bar .search{
+            flex-grow: 1;
+        }
+        .title_bar .login a{
+            text-decoration: none;
+            font-size: 16px;
+            border: 2px;
+            border-radius: 15px;
+            background-color: rgb(248, 141, 0);
+            color: white;
+            padding: 10px;
+            margin-right: 15px;
+        }
+        .title_bar .login a:hover{
+            background-color: red;
+        }
+        .second_bar{
+            display: flex;
+            margin: 0 30px;
+            /* background-color: rgb(218, 139, 139); */
+            background-color: rgb(180, 179, 179); 
+            position: fixed;
+            margin: 0;
+            top: 60px;
+            left: 0;
+            right: 0;
+            z-index: 1;
+
+        }
+        .second_bar a{
+            text-decoration: none;
+            padding: 10px;
+            font-size: 16px;
+            color: black;
+        }
+        /* .second_bar a:hover{
+            background-color: rgb(218, 216, 216);
+        } */
+        .second_bar img{
+            width: 15px;
+            height: 15px;
+            vertical-align: top;
+        }
+        .trip_pic{
+            width: 1200px;
+            height: 600px;
+            margin: auto;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .trip_pic img{
+            width: 100%;
+            height: 100%;
+        }
+        .next_btn{
+            width: 45px;
+            height: 45px;
+            border: 1px solid white;
+            border-radius: 50%;
+            background-color: rgb(218, 218, 218);
+            position: absolute;
+            margin: 0;
+            top: 325px;
+            left: 1182px;
+        }
+        .next_btn a img{
+            width: 35px;
+            height: 35px;
+            padding-left: 9px;
+            padding-top: 5px;
+        }.next_btn1{
+            width: 45px;
+            height: 45px;
+            border: 1px solid white;
+            border-radius: 50%;
+            background-color: rgb(218, 218, 218);
+            position: absolute;
+            margin: 0;
+            top: 325px;
+            left: -30px;
+        }
+        .next_btn1 a img{
+            width: 35px;
+            height: 35px;
+            padding-left: 3px;
+            padding-top: 5px;
+        }
+        .bread{
+            width: 1200px;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+        .bread a{
+            text-decoration: none;
+            padding: 5px;
+            color: cornflowerblue;
+        }
+        .introduce{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        .introduce_main{
+            width: 900px;
+        }
+        .introduce_main h1{
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+        .introduce_price{
+            width: 300px;
+        }
+        .grade{
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .grade h2{
+            font-size: 18px;
+            color: orange;
+            padding: 4px;
+        }
+        .grade .comments{
+            font-size: 18px;
+            color: rgb(69, 69, 253);
+            padding: 4px;
+        }
+        .grade .join{
+            font-size: 18px;
+            color: rgb(165, 165, 165);
+            padding: 4px;
+        }
+        .grade .mylove{
+            margin-left: auto;
+            margin-right: 25px;
+        }
+        .grade .mylove a{
+            text-decoration: none;
+            font-size: 18px;
+            color: gray;
+        }
+        .careful{
+            width: 800px;
+            display: flex;
+            margin: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .careful_item{
+            width: 380px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .careful_item img{
+            width: 20px;
+            height: 20px;
+            margin-right: 3px;
+        }
+        .careful_item p{
+            font-size: 15px;
+        }
+        .introduce_txt{
+            padding: 10px;
+        }
+        .introduce_txt li{
+            font-size: 18px;
+            line-height: 1.2em;
+            margin: 10px;
+        }
+        .introduce_price .price{
+            height: 200px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin-bottom: 10px;
+        }
+        .introduce_price .price h1{
+            font-size: 25px;
+            flex-grow: 1;
+        }
+        .introduce_price .clock{
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .introduce_price .clock p{
+            font-size: 14px;
+        }
+        .introduce_price .clock img{
+            width: 17px;
+            height: 17px;
+            padding-right: 3px;
+        }
+        .introduce_price .confirm{
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .introduce_price .confirm img{
+            width: 18px;
+            height: 18px;
+            padding-right: 3px;
+        }
+        .introduce_price .select{
+            width: 280px;
+            height: 43px;
+            border: 1px solid orange;
+            border-radius: 5px;
+            background-color: orange;
+        }
+        .introduce_price .select h2{
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            padding-top: 12px;
+        }
+        .introduce_price .first_app{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+        .introduce_price .first_app img{
+            width: 60px;
+            height: 50px;
+        }
+        .introduce_price .first_app p{
+            font-size: 16px;
+            line-height: 1.2em;
+        }
+        .for_plan_choose{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            margin-bottom: 70px;
+        }
+        .plan_choose_title{
+            width: 1200px;
+            margin: auto;;
+        }
+        .plan_choose_title h2{
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+        .plan_choose{
+            width: 880px;
+            height: 570px;
+            margin-right: 20px;
+        }
+        .plan_item{
+            width: 300px;
+            height: 270px;
+            padding: 30px 15px;
+            background-color: rgb(250, 231, 221);
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+        }
+        .date{
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .date h2{
+            font-size: 23px;
+            margin-right: auto;
+        }
+        .date .clear_all{
+            width: 100px;
+            height: 35px; 
+            background-color:white;
+            border: 2px solid rgb(119, 119, 255);
+            border-radius: 5px;
+            text-align: center;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .date .clear_all p{
+            color: rgb(119, 119, 255);
+            font-weight: bold;
+            padding-top: 10px;
+        }
+        .plan_choose .item p{
+            font-size: 15px;
+            color: rgb(114, 114, 114);
+            margin-bottom: 8px;
+        }
+        .choose_date{
+            width: 160px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            background-color: rgb(255, 81, 0);
+            border: 1px solid rgb(255, 81, 0);
+            border-radius: 2px;
+            padding: 5px;
+            margin-bottom: 25px;
+        }
+        .choose_date img{
+            width: 23px;
+            height: 23px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        .choose_date p{
+            color: white;
+        }
+        .choose_item{
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .choose_item .ticket{
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 2px;
+            padding: 7px 15px;
+            margin: 5px;
+        }
+        .plan_choose .buy_ticket{
+            width: 800px;
+            display: flex;
+            background-color: white;
+            margin-bottom: 10px;
+            padding: 16px;
+            align-items: center;
+        }
+        .plan_choose .buy_ticket h2{
+            font-size: 20px;
+            margin-right: auto;
+            margin-left: 15px;
+        }
+        .plan_choose .buy_ticket img{
+            width: 20px;
+            height: 20px;
+            background-color: rgb(226, 234, 253);
+            padding: 5px;
+        }
+        .buy_ticket .number{
+            display: flex;
+        }
+        .buy_ticket .number h2{
+            margin-top: 5px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+        .book{
+            width: 800px;
+            display: flex;
+            margin-top: 50px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+        .book h2{
+            font-size: 20px;
+            margin-right: auto;
+        }
+        .book .shopping_cart{
+            background-color: rgb(253, 182, 49);
+            padding: 13px 18px;
+            border: 1px solid rgb(253, 182, 49) ;
+            border-radius: 3px;
+            margin-right: 15px;
+        }
+        .book .shopping_cart p{
+            color: white;
+        }
+        .book .book_now{
+            background-color: rgb(255, 81, 0);
+            padding: 13px 18px;
+            border: 1px solid rgb(255, 81, 0) ;
+            border-radius: 3px;
+        }
+        .book .book_now p{
+            color: white;
+        }
+        .for_plan_choose .plan_choose{
+            padding: 30px;
+            background-color: rgb(250, 231, 221);
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+        }
+        .plan_item h2{
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .plan_item .detail{
+            margin-bottom: 15px;
+        }
+        .plan_item .detail a{
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px;
+            color: rgb(119, 119, 255);
+        }
+        .detail_icon_area{
+            background-color: white;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+        .detail_icon{
+            display: flex;
+            margin: 15px;;
+            align-items: center;
+        }
+        .detail_icon img{
+            width: 20px;
+            height: 20px;
+            margin-right: 3px;
+            vertical-align: top;
+        }
+        .comment_intro{
+            width: 1200px;
+            margin: auto;
+        }
+        .comment_intro h1{
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+        .comment_intro h2{
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+        .comment_intro p{
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .commemt_intro_item{
+            width: 900px;
+        }
+        .commemt_intro_item img{
+            width: 900px;
+            height: 600px;
+            margin-bottom: 10px;
+        }
+        .google_map h2{
+            font-size: 30px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .google_map img{
+            width: 900px;
+            height: 350px;
+            margin-bottom: 50px;
+        }
+        .footer_color{
+            width: 100%;
+            background-color: rgb(117, 117, 117);
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .footer_bar{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .footer_bar .footer_logo{
+            width: 140px;
+            height: 50px;
+            margin-right: auto;
+        }
+        .footer_bar .footer_logo img{
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+        .footer_bar h2{
+            margin-right: 5px;
+            color: white;
+        }
+        .footer_bar button{
+            font-size: 16px;
+            width: 50px;
+            height: 35px;
+            background-color: orange;
+            color: white;
+        }
+        .about{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+        }
+        .know_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .together_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .use_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact_us{
+            width: 300px;
+        }
+        .footer .about p{
+            font-size: 16px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .footer .about a{
+            text-decoration: none;
+            font-size: 15px;
+            color:black;
+            padding: 5px;    
+        }
+        .app{
+            display: flex;
+        }
+        .app .app_pic{
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+        }
+        .app .app_pic img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="all_background_color">
+        <div class="title_bar">
+            <div class="logo">
+                <a href="首頁.html">
+                    <img src="pic/sometrip.png" alt="">
+                </a>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="搜尋屏東的活動" style ="font-size:16px;height:30px;width:200px;border-radius: 15px; border: 1px solid white;">
+            </div>
+            <div class="login">
+                <a href="#">登入</a>
+            </div>
+        </div>
+        <nav class="second_bar">
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">
+                <img src="pic/locate.png" alt="">
+                探索目的地
+            </a>
+            <a href="特色體驗.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">特色體驗</a>
+            <a href="美食品嘗.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">美食品嘗</a>
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">交通</a>
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">住宿</a>
+            <a href="網路卡.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">網路卡</a>
+            <a href="出國須知.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">出國須知</a>
+        </nav>
+
+        <div class="trip_pic">
+            <img src="pic/ocean.webp" alt="">
+            <div class="next_btn">
+                <a href="#">
+                <img src="pic/next.png" alt="">
+                </a>
+            </div>
+            <div class="next_btn1">
+                <a href="#">
+                <img src="pic/next1.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="bread">
+            <a href="#">SOMETRIP ></a>
+            <a href="#">台灣 ></a>
+            <a href="#">屏東 ></a>
+            <a href="#">特色體驗 ></a>
+            <a href="#">景點門票 ></a>
+            <a href="#" style="color: gray;">博物館&美術館</a>
+        </div>
+        <div class="introduce">
+            <div class="introduce_main">
+                <h1>94折起 | 夏日限定璀璨之海｜墾丁｜屏東海生館｜門票</h1>
+                <div class="grade">
+                    <h2>★4.5</h2>
+                    <div class="comments">
+                        (12,502則評價)
+                    </div>
+                    <div class="join">
+                        100K+人參加
+                    </div>
+                    <div class="mylove">
+                        <a href="#">♡加入我的最愛</a>
+                    </div>
+                </div>
+                <div class="careful">
+                    <div class="careful_item">
+                        <img src="pic/dollar.png" alt="">
+                        <p>不可取消/有條件取消/兌換憑證前可免費取消</p>
+                    </div>
+                    <div class="careful_item">
+                        <img src="pic/calendar.png" alt="">
+                        <p>有效期／兌換期內皆可使用/僅限指定日期使用</p>
+                    </div>
+                    <div class="careful_item">
+                        <img src="pic/printer.png" alt="">
+                        <p>可出示手機電子憑證或列印的紙本憑證</p>
+                    </div>
+                    <div class="careful_item">
+                        <img src="pic/invoice.png" alt="">
+                        <p>必須兌換實體票券</p>
+                    </div>
+                </div>
+                <div class="introduce_txt">
+                    <ul>
+                        <li>全台規模最大海生館，館內魚種豐富，具寓教於樂功能，親子出遊首選！</li>
+                        <li>三大主題館：「台灣水域館」台灣地小卻多元化的水域生態，「珊瑚王國館」海底隧道觀察繽紛亮眼的珊瑚礁世界，「世界水域館」虛擬實境呈現世界百般海洋生態</li>
+                        <li>海生館擁有可以戲水的迎賓廣場、壯觀的巨大海藻林與餵食解說活動，享受充實旅遊時光</li>
+                        <li>SOMETRIP小編分享：超強屏東海生館！交通、夜宿海生館一次看</li>
+                        <li><strong>此為交通部觀光局屏東好玩卡推薦商品</strong></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="introduce_price">
+                <div class="price">
+                    <p style="color: rgb(148, 147, 147);">最優質價格保證</p>
+                    <h1>NT$ 420</h1>
+                    <div class="clock">
+                        <img src="pic/clock.png" alt="">
+                        <p>現在預訂，當日使用</p>
+                    </div>
+                    <div class="confirm">
+                        <img src="pic/confirm.png" alt="">
+                        <p>立即確認並獲得憑證/48小時內確認</p>
+                    </div>
+                    <div class="select">
+                        <h2>選擇方案組合</h2>
+                    </div>
+                </div>
+                <div class="first_app">
+                    <img src="pic/download.png" alt="">
+                    <p>手機App首次預訂輸入優惠碼<span style="color: red;">SomeTripGo</span>可享5%折扣</p>
+                </div>
+            </div>
+        </div>    
+            
+        <div class="plan_choose_title">
+            <h2>方案選擇</h2>
+        </div>
+        <div class="for_plan_choose">
+            <div class="plan_choose">
+                <div class="date">
+                    <h2>選擇日期及方案組合</h2>
+                    <div class="clear_all">
+                        <p>清除全部</p>
+                    </div>
+                </div>
+                <div class="item"><p>請選擇兌換日期</p></div>
+                
+                <div class="choose_date">
+                    <img src="pic/calendar1.png" alt="">
+                    <p>查看可預訂日期</p>
+                </div>
+                <div class="item"><p>方案類型</p></div>
+                <div class="choose_item">
+                    <div class="ticket">【限時94折】單人門票</div>
+                    <div class="ticket">單人門票 + 虛擬海世界VR體驗館套票</div>
+                    <div class="ticket">單人門票 + 海味食堂套餐</div>
+                    <div class="ticket">雙人套票｜門票 + 魚你同行（秘密花園後場參觀）</div>
+                    <div class="ticket">單人門票 + 鹿境梅花鹿生態園區入場</div>
+                    <div class="ticket">單人門票 + 墾丁快線來回車票</div>
+                </div>
+                <div class="item"><p>數量</p></div>
+                <div class="buy_ticket">
+                    <h2>成人</h2>
+                    <div class="number">
+                        <img src="pic/remove.png" alt="">
+                        <h2>1</h2>
+                        <img src="pic/plus.png" alt="">
+                    </div>
+                </div>
+                <div class="buy_ticket">
+                    <h2>優待票</h2>
+                    <div class="number">
+                        <img src="pic/remove0.png" alt="">
+                        <h2>0</h2>
+                        <img src="pic/plus.png" alt="">
+                    </div>
+                </div>
+                <div class="book">
+                    <h2>NT$ 420</h2>
+                    <div class="shopping_cart">
+                        <p>加入購物車</p>
+                    </div>
+                    <div class="book_now">
+                        <p>立即預訂</p>
+                    </div>
+                </div>
+            </div>
+            <div class="plan_item">
+                <h2>已選方案詳情</h2>
+                <div class="detail">
+                    <a href="#">方案詳情</a>
+                    <a href="#">使用條款</a>
+                    <a href="#">如何使用</a>
+                </div>
+                <div class="detail_icon_area">
+                    <div class="detail_icon">
+                        <img src="pic/confirm.png" alt="">
+                        <p>立即確認並獲得憑證</p>
+                    </div>
+                    <div class="detail_icon">
+                        <img src="pic/dollar.png" alt="">
+                        <p>有條件取消</p>
+                    </div>
+                    <div class="detail_icon">
+                        <img src="pic/calendar.png" alt="">
+                        <p>有效期／兌換期內皆可使用</p>
+                    </div>
+                    <div class="detail_icon">
+                        <img src="pic/printer.png" alt="">
+                        <p>可出示手機電子憑證</p>
+                    </div>
+                    <div class="detail_icon">
+                        <img src="pic/invoice.png" alt="">
+                        <p>必須兌換實體票券</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="comment_intro">
+            <h1>活動介紹</h1>
+            <div class="commemt_intro_item">
+                <h2>2021/8/7 - 10/11 璀璨之海</h2>
+                <p>♩活動地點：海藻森林區1F及3F廊道♩ ♩投影互動科技，與大鯨魚一同航向美好璀璨的未來♩ ♩巨幅螢光插畫，邀你共同來感受海洋萬物的生命力♩ ♩ 幼魚初次亮相，近距離欣賞珊瑚礁幼魚的美麗樣貌♩</p>
+                <h2>屏東海生館</h2>
+                <p>米其林指南推薦必遊的國立海洋生物博物館，欣賞海底隧道與小白鯨、魟魚、企鵝，探索最驚奇的海洋生態！海生館共分台灣水域館、珊瑚王國館及世界水域館三個展示館，囊括了台灣的各式水域生態，還有極地水域、深海水域等水域的虛擬實境讓人身歷其境。參觀珊瑚王國館（東南亞最長的海底隧道）、台灣水域館（了解從高山到海洋的水域生態）、無水水域館（3D立體虛擬現實觀看古代海洋、海藻森林、深海水域、極地水域），拜訪紳士企鵝、與小白鯨共舞。</p>
+
+                <img src="pic/ocean4.jpeg" alt="">
+
+                <p>▲螢河燦燦 全長20公尺螢光插畫牆｜在插畫牆上有許多不同的海洋生物！有大翅鯨、水母之外，還有好多珊瑚礁魚類，你可以認出幾種呢？螢光效果讓人彷彿置身在星河之中，一起感受這絢爛迷幻的時刻</p>
+
+                <img src="pic/ocean1.jpg" alt="">
+
+                <p>▲拜訪小白鯨，認識各式各樣不同的水域生態</p>
+
+                <img src="pic/ocean3.jpeg" alt="">
+
+                <p>▲千萬別錯過萌翻天的企鵝，近距離他們可愛的模樣</p>
+
+                <img src="pic/ocean5.jfif" alt="">
+
+                <p>▲魚你同行，享受著與可愛的魚群們共游的快樂</p>
+
+                <img src="pic/ocean2.jpg" alt="">
+
+                <p>▲夜宿海生館，絕對是你人生中第一次最特別的住宿經驗</p>
+            </div>
+            <div class="google_map">
+                <h2>地點</h2>
+                <img src="pic/oceanmap.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="footer_color">
+        <div class="footer">
+            <div class="footer_bar">
+                <div class="footer_logo">
+                    <img src="pic/sometrip.png" alt="">
+                </div>
+                <h2>立即收到最新資訊</h2>
+                <div class="subscribe">
+                    <input type="text" placeholder="輸入電子信箱" style ="font-size:16px;height:30px;width:200px; border: 1px solid black;">
+                </div>
+                <button>訂閱</button>
+            </div>
+            <div class="about">
+                <div class="know_sometrip">
+                    <p>認識SOMETRIP</p>
+                    <a href="#">關於SOMETRIP</a>
+                    <a href="#">SOMETRIP旅遊攻略</a>
+                    <a href="#">加入SOMETRIP</a>
+                </div>
+                <div class="together_sometrip">
+                    <p>攜手SOMETRIP</p>
+                    <a href="#">供應商註冊</a>
+                    <a href="#">供應商登入</a>
+                    <a href="#">聯合行銷</a>
+                    <a href="#">名人合作</a>
+                    <a href="#">同業交易</a>
+                    <a href="#">數位解決方案</a>
+                    <a href="#">分銷&行銷提案</a>
+                </div>
+                <div class="use_sometrip">
+                    <p>使用條款</p>
+                    <a href="#">使用條款</a>
+                    <a href="#">隱私政策</a>
+                    <a href="#">Cookie政策</a>
+                    <a href="#">技術問題懸賞方案</a>
+                </div>
+                <div class="contact_us">
+                    <p>聯絡我們</p>
+                    <div class="app">
+                        <div class="app_pic">
+                            <img src="pic/facebook.png" alt="">
+                        </div>
+                        <div class="app_pic">
+                            <img src="pic/instagram.png" alt="">
+                        </div>
+                        <div class="app_pic">
+                            <img src="pic/twitter.png" alt="">
+                        </div>
+                        <div class="app_pic">
+                            <img src="pic/wechat.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>

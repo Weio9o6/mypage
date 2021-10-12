@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特色體驗</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .all_background_color{
+            background-color: rgb(238, 238, 238);
+        }
+        .title_bar{
+            margin: auto;
+            display: flex;
+            align-items: center; 
+            background-color: #aaa; 
+            margin: 0 15px;
+            position: fixed;
+            margin: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+        .title_bar .logo{
+            margin: 5px 20px;
+            width: 140px;
+            height: 50px;
+        }
+        .title_bar .logo img{
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+        .title_bar .search{
+            flex-grow: 1;
+        }
+        .title_bar .login a{
+            text-decoration: none;
+            font-size: 16px;
+            border: 2px;
+            border-radius: 15px;
+            background-color: rgb(248, 141, 0);
+            color: white;
+            padding: 10px;
+            margin-right: 15px;
+        }
+        .title_bar .login a:hover{
+            background-color: red;
+        }
+        .second_bar{
+            display: flex;
+            margin: 0 30px;
+            /* background-color: rgb(218, 139, 139); */
+            background-color: rgb(180, 179, 179); 
+            position: fixed;
+            margin: 0;
+            top: 60px;
+            left: 0;
+            right: 0;
+            z-index: 1;
+
+        }
+        .second_bar a{
+            text-decoration: none;
+            padding: 10px;
+            font-size: 16px;
+            color: black;
+        }
+        /* .second_bar a:hover{
+            background-color: rgb(218, 216, 216);
+        } */
+        .second_bar img{
+            width: 15px;
+            height: 15px;
+            vertical-align: top;
+        }
+        .banner{
+            height: 600px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .banner img{
+            width: 100%;
+            height: 100%;
+        }
+        .discover_txt{
+            width: 300px;
+            margin: auto;
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            margin: 0;
+            top: 230px;
+            left: 200px;
+        }
+        .discover{
+            display: flex;
+            width: 775px;
+            height: 48px;
+            margin: auto;
+            padding: 5px;
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            align-items: center;
+            position: absolute;
+            margin: 0;
+            top: 330px;
+            left: 200px;
+        }
+        .discover_search_btn{
+            width: 70px;
+            height: 30px;
+            background-color: orange;
+            border: 1px solid orange;
+            border-radius: 5px;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .discover_search_btn a{
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+        .kind_vacation{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            position: relative;
+            margin-bottom: 70px;
+        }
+        .kind_vacation_item{
+            width: 171.4285px;
+            height: 130px;
+            margin: 15px;
+            background-color: rgb(218, 218, 218);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .kind_vacation .kind_vacation_icon{
+            width: 30px;
+            height: 30px;
+            margin-bottom: 10px;
+        }
+        .kind_vacation .kind_vacation_icon img{
+            width: 100%;
+            height: 100%;
+        }
+        .next_btn{
+            width: 30px;
+            height: 30px;
+            border: 1px solid white;
+            border-radius: 50%;
+            background-color: rgb(218, 218, 218);
+            position: absolute;
+            margin: 0;
+            right: -22px;
+            top: 65px;
+        }
+        .next_btn a img{
+            width: 20px;
+            height: 20px;
+            padding-left: 7px;
+            padding-top: 5px;
+        }
+        .trip_section{
+            width: 1200px;
+            display: flex;
+            margin: auto;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        .trip_section .trip_area{
+            width: 208px;
+            height: 260px;
+            border: 1px solid;
+            margin: 15px;
+            
+        }
+        .trip_section .trip_area img{
+            width: 208px;
+            height: 260px;
+            margin-bottom: -70px;
+            
+        }
+        .trip_section .trip_area_item{
+            background-color: white;
+            width: 208px;
+            border: 1px solid;
+            margin: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+        }
+        .trip_area_item_pic img{
+            width: 208px;
+            height: 130px;
+            margin-bottom: -30px;
+        }
+        .trip_area .trip_area_txt{
+            padding-left: 15px;
+        }
+        .trip_area .trip_area_txt h2{
+            font-size: 25px;
+            margin-bottom: 7px;
+            color: white;
+        }
+        .trip_area .trip_area_txt p{
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+        }
+        .discount_bar{
+            display: flex;
+        }
+        .discount_bar .discount{
+            background-color:orange;
+            color: white;
+            padding:3px;
+            border: 1px solid orange;
+            border-radius: 4px;
+            margin: 0px 5px;
+        }
+        .discount_bar .hot_sale{
+            background-color:rgb(255, 60, 0);
+            color: white;
+            padding:3px;
+            border: 1px solid rgb(255, 60, 0);
+            border-radius: 4px;
+            margin: 0px 5px;
+        }
+        .trip_area_item_txt{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin-top: 5px;
+            padding: 5px;
+        }
+        .trip_area_item_txt p{
+            font-size: 15px;
+            margin-top: 3px;
+            color: gray;
+            
+        }
+        .trip_area_item_txt h3{
+            color: orange;
+            flex-grow: 1;
+        }
+        .trip_section_nextbtn{
+            width: 30px;
+            height: 30px;
+            border: 1px solid white;
+            border-radius: 50%;
+            background-color: rgb(218, 218, 218);
+            position: absolute;
+            margin: 0;
+            right: -24px;
+            top: 150px;
+        }
+        .trip_section_nextbtn a img{
+            width: 20px;
+            height: 20px;
+            padding-left: 7px;
+            padding-top: 5px;
+        }
+        .footer_color{
+            width: 100%;
+            background-color: rgb(117, 117, 117);
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .footer_bar{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .footer_bar .footer_logo{
+            width: 140px;
+            height: 50px;
+            margin-right: auto;
+        }
+        .footer_bar .footer_logo img{
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+        .footer_bar h2{
+            margin-right: 5px;
+            color: white;
+        }
+        .footer_bar button{
+            font-size: 16px;
+            width: 50px;
+            height: 35px;
+            background-color: orange;
+            color: white;
+        }
+        .about{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+        }
+        .know_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .together_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .use_sometrip{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact_us{
+            width: 300px;
+        }
+        .footer .about p{
+            font-size: 16px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .footer .about a{
+            text-decoration: none;
+            font-size: 15px;
+            color:black;
+            padding: 5px;    
+        }
+        .app{
+            display: flex;
+        }
+        .app .app_pic{
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+        }
+        .app .app_pic img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="all_background_color">
+        <div class="title_bar">
+            <div class="logo">
+                <a href="首頁.html">
+                    <img src="pic/sometrip.png" alt="">
+                </a>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="探索目的地/活動" style ="font-size:16px;height:30px;width:200px;border-radius: 15px; border: 1px solid white;">
+            </div>
+            <div class="login">
+                <a href="#">登入</a>
+            </div>
+        </div>
+        <nav class="second_bar">
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">
+                <img src="pic/locate.png" alt="">
+                探索目的地
+            </a>
+            <a href="特色體驗.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">特色體驗</a>
+            <a href="美食品嘗.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">美食品嘗</a>
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">交通</a>
+            <a href="#" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">住宿</a>
+            <a href="網路卡.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">網路卡</a>
+            <a href="出國須知.html" style="color:black; font-weight:normal" 
+            onMouseOver="this.style.color='white';this.style.fontWeight='bold'" 
+            onMouseOut="this.style.color='black';this.style.fontWeight='normal'">出國須知</a>
+        </nav>
+        <div class="banner">
+            <img src="pic/特色1.png" alt="">
+            <div class="discover_txt">特色體驗</div>
+            <div class="discover">
+                <div class="discover_search">
+                    <input type="text" placeholder="想做什麼? 玩什麼?" style ="font-size:20px;height:50px;width:700px; border: 1px white;">
+                </div>
+                <div class="discover_search_btn">
+                    <a href="#">搜尋</a>
+                </div>
+            </div>
+        </div>
+        <div class="kind_vacation">
+            <div class="kind_vacation_item">
+                <div class="kind_vacation_icon">
+                    <img src="pic/categories.png" alt="">
+                </div>
+                <div class="kind_vacation_txt">
+                    <p>總覽</p>
+                </div>
+            </div>
+            <div class="kind_vacation_item">
+                <div class="kind_vacation_icon">
+                    <img src="pic/amusement-park.png" alt="">
+                </div>
+                <div class="kind_vacation_txt">
+                    <p>主題&水上樂園</p>
+                </div>
+            </div>
+            <div class="kind_vacation_item">
+                <div class="kind_vacation_icon">
+                    <img src="pic/camping-tent.png" alt="">
+                </div>
+                <div class="kind_vacation_txt">
+                    <p>一般&豪華露營</p>
+                </div>
+            </div>
+            <div class="kind_vacation_item">
+                <div class="kind_vacation_icon">
+                    <img src="pic/ship.png" alt="">
+                </div>
+                <div class="kind_vacation_txt">
+                    <p>遊船&遊艇觀光</p>
+                </div>
+            </div>
+            <div class="kind_vacation_item">
+                <div class="kind_vacation_icon">
+                    <img src="pic/museum.png" alt="">
+                </div>
+                <div class="kind_vacation_txt">
+                    <p>博物館&美術館</p>
+                </div>
+            </div>
+            <div class="kind_vacation_item">
+                <div class="kind_vacation_icon">
+                    <img src="pic/massage.png" alt="">
+                </div>
+                <div class="kind_vacation_txt">
+                    <p>SPA&按摩</p>
+                </div>
+            </div>
+            <div class="kind_vacation_item">
+                <div class="kind_vacation_icon">
+                    <img src="pic/extreme-sport.png" alt="">
+                </div>
+                <div class="kind_vacation_txt">
+                    <p>極限運動</p>
+                </div>
+            </div>
+            <div class="next_btn">
+                <a href="#">
+                    <img src="pic/next.png" alt="">
+                </a>
+            </div>
+        </div>
+        
+        <div class="trip_section">
+            <div class="trip_area">
+                <img src="pic/taiwan.jpg" alt="">
+                <div class="trip_area_txt">
+                    <h2>台灣</h2>
+                    <p>探索 ></p>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <a href="介紹.html"><img src="pic/ocean.webp" alt=""></a>
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2><a href="介紹.html" style="text-decoration: none;color:black;">94折起|夏日限定璀璨之海|墾丁|屏東海生館|門票</a></h2>
+                    <p>100K+人參加</p>
+                    <h3>★4.5</h3>
+                    <h2>NT$ 420</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/遠雄海洋.webp" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>限時86折起|花蓮|遠雄海洋公園|門票|即買即用</h2>
+                    <p>350K+人參加</p>
+                    <h3>★4.3</h3>
+                    <h2>NT$ 790</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/turtle.webp" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="trip_area_item_txt">
+                    <h2>限時75折起|宜蘭|龜山島登島|賞鯨|環繞龜山島體驗</h2>
+                    <p>40K+人參加</p>
+                    <h3>★4.6</h3>
+                    <h2>NT$ 900</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/梅花鹿.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>屏東|墾丁鹿境梅花鹿生態園區|門票</h2>
+                    <p>60K+人參加</p>
+                    <h3>★4.7</h3>
+                    <h2>NT$ 171</h2>
+                </div>
+            </div>
+            <div class="trip_section_nextbtn">
+                <a href="#">
+                    <img src="pic/next.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <div class="trip_section">
+            <div class="trip_area">
+                <img src="pic/日本.jfif" alt="">
+                <div class="trip_area_txt">
+                    <h2>日本</h2>
+                    <p>探索 ></p>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/東京豐洲.webp" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>東京豐洲teamLab Planets TOKYO門票</h2>
+                    <p>10K+人參加</p>
+                    <h3>★4.8</h3>
+                    <h2>NT$ 801</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/環球.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>日本環球影城|電子門票</h2>
+                    <p>8K+人參加</p>
+                    <h3>★4.8</h3>
+                    <h2>NT$ 1,351</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/嚕嚕米.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="trip_area_item_txt">
+                    <h2>飯能嚕嚕米主題樂園門票</h2>
+                    <p>3K+人參加</p>
+                    <h3>★4.5</h3>
+                    <h2>NT$ 575</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/大阪樂遊.webp" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>【限時買1送1】大阪樂遊券</h2>
+                    <p>500K+人參加</p>
+                    <h3>★4.6</h3>
+                    <h2>NT$ 500</h2>
+                </div>
+            </div>
+            <div class="trip_section_nextbtn">
+                <a href="#">
+                    <img src="pic/next.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <div class="trip_section">
+            <div class="trip_area">
+                <img src="pic/香港.jpg" alt="">
+                <div class="trip_area_txt">
+                    <h2>香港&澳門</h2>
+                    <p>探索 ></p>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/香港迪士尼.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>香港迪士尼樂園門票</h2>
+                    <p>2M+人參加</p>
+                    <h3>★4.8</h3>
+                    <h2>NT$ 1,569</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/香港海洋.jfif" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>香港海洋公園門票</h2>
+                    <p>100M+人參加</p>
+                    <h3>★4.7</h3>
+                    <h2>NT$ 959</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/纜車.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="trip_area_item_txt">
+                    <h2>【限時優惠】昂坪360纜車門票</h2>
+                    <p>100K+人參加</p>
+                    <h3>★4.7</h3>
+                    <h2>NT$ 519</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/海洋公園.jfif" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>【限時早鳥優惠】香港海洋公園水上樂園門票</h2>
+                    <p>6K+人參加</p>
+                    <h3>★4.6</h3>
+                    <h2>NT$ 1,154</h2>
+                </div>
+            </div>
+            <div class="trip_section_nextbtn">
+                <a href="#">
+                    <img src="pic/next.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <div class="trip_section">
+            <div class="trip_area">
+                <img src="pic/泰國.jfif" alt="">
+                <div class="trip_area_txt">
+                    <h2>泰國</h2>
+                    <p>探索 ></p>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/曼谷王權.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>【優惠】曼谷王權Mahanakhon SkyWalk</h2>
+                    <p>50K+人參加</p>
+                    <h3>★4.7</h3>
+                    <h2>NT$ 415</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/真理寺.webp" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>芭達雅真理寺</h2>
+                    <p>70K+人參加</p>
+                    <h3>★4.7</h3>
+                    <h2>NT$ 315</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/泰國星巴克電子卡.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="trip_area_item_txt">
+                    <h2>泰國星巴克電子卡</h2>
+                    <p>7K+人參加</p>
+                    <h3>★4.8</h3>
+                    <h2>NT$ 763</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/斯米蘭.webp" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>斯米蘭群島快艇一日遊</h2>
+                    <p>7K+人參加</p>
+                    <h3>★4.8</h3>
+                    <h2>NT$ 1,244</h2>
+                </div>
+            </div>
+            <div class="trip_section_nextbtn">
+                <a href="#">
+                    <img src="pic/next.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <div class="trip_section">
+            <div class="trip_area">
+                <img src="pic/美國.jpg" alt="">
+                <div class="trip_area_txt">
+                    <h2>美國</h2>
+                    <p>探索 ></p>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/拉斯維加斯.webp" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>拉斯維加斯豪客摩天輪High Roller門票</h2>
+                    <p>7K+人參加</p>
+                    <h3>★4.7</h3>
+                    <h2>NT$ 620</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/加州迪士尼.JPG" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>加州迪士尼樂園&迪士尼加州冒險樂園門票</h2>
+                    <p>50K+人參加</p>
+                    <h3>★4.8</h3>
+                    <h2>NT$ 2,866</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/環球影城.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="trip_area_item_txt">
+                    <h2>好萊塢環球影城單日票&二日門票</h2>
+                    <p>100K+人參加</p>
+                    <h3>★4.9</h3>
+                    <h2>NT$ 2,917</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/聖地牙哥.jfif" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>聖地牙哥海洋世界門票</h2>
+                    <p>10K+人參加</p>
+                    <h3>★4.7</h3>
+                    <h2>NT$ 1,808</h2>
+                </div>
+            </div>
+            <div class="trip_section_nextbtn">
+                <a href="#">
+                    <img src="pic/next.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <div class="trip_section">
+            <div class="trip_area">
+                <img src="pic/韓國.jpg" alt="">
+                <div class="trip_area_txt">
+                    <h2>韓國</h2>
+                    <p>探索 ></p>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/釜山水族館.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>釜山水族館Sea Life免排隊門票</h2>
+                    <p>40K+人參加</p>
+                    <h3>★4.6</h3>
+                    <h2>NT$ 422</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/南怡島.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>【優惠】南怡島門票(包美食+活動)</h2>
+                    <p>20K+人參加</p>
+                    <h3>★4.7</h3>
+                    <h2>NT$ 117</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/樂天.webp" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="trip_area_item_txt">
+                    <h2>首爾樂天世界主題樂園一日門票</h2>
+                    <p>400K+人參加</p>
+                    <h3>★4.5</h3>
+                    <h2>NT$ 826</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/南山塔.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>N首爾塔(南山塔)門票</h2>
+                    <p>400K+人參加</p>
+                    <h3>★4.6</h3>
+                    <h2>NT$ 141</h2>
+                </div>
+            </div>
+            <div class="trip_section_nextbtn">
+                <a href="#">
+                    <img src="pic/next.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <div class="trip_section">
+            <div class="trip_area">
+                <img src="pic/中國.jpg" alt="">
+                <div class="trip_area_txt">
+                    <h2>中國</h2>
+                    <p>探索 ></p>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/歡樂谷.jfif" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>【限時優惠】深圳歡樂谷門票</h2>
+                    <p>20K+人參加</p>
+                    <h3>★4.9</h3>
+                    <h2>NT$ 261</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/上海迪士尼.webp" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>【限時優惠】上海迪士尼樂園門票</h2>
+                    <p>300K+人參加</p>
+                    <h3>★4.8</h3>
+                    <h2>NT$ 798</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/廣州.jfif" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="trip_area_item_txt">
+                    <h2>【限時促銷】廣州融創雪世界門票</h2>
+                    <p>30K+人參加</p>
+                    <h3>★4.6</h3>
+                    <h2>NT$ 1,124</h2>
+                </div>
+            </div>
+            <div class="trip_area_item">
+                <div class="trip_area_item_pic">
+                    <img src="pic/珠海.jpg" alt="">
+                    <div class="discount_bar">
+                        <div class="discount">
+                            <p>7% OFF</p>
+                        </div>
+                        <div class="hot_sale">
+                            <p>熱賣中</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip_area_item_txt">
+                    <h2>【限時優惠】珠海長隆海洋王國門票</h2>
+                    <p>100K+人參加</p>
+                    <h3>★4.5</h3>
+                    <h2>NT$ 420</h2>
+                </div>
+            </div>
+            <div class="trip_section_nextbtn">
+                <a href="#">
+                    <img src="pic/next.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer_color">
+            <div class="footer">
+                <div class="footer_bar">
+                    <div class="footer_logo">
+                        <img src="pic/sometrip.png" alt="">
+                    </div>
+                    <h2>立即收到最新資訊</h2>
+                    <div class="subscribe">
+                        <input type="text" placeholder="輸入電子信箱" style ="font-size:16px;height:30px;width:200px; border: 1px solid black;">
+                    </div>
+                    <button>訂閱</button>
+                </div>
+                <div class="about">
+                    <div class="know_sometrip">
+                        <p>認識SOMETRIP</p>
+                        <a href="#">關於SOMETRIP</a>
+                        <a href="#">SOMETRIP旅遊攻略</a>
+                        <a href="#">加入SOMETRIP</a>
+                    </div>
+                    <div class="together_sometrip">
+                        <p>攜手SOMETRIP</p>
+                        <a href="#">供應商註冊</a>
+                        <a href="#">供應商登入</a>
+                        <a href="#">聯合行銷</a>
+                        <a href="#">名人合作</a>
+                        <a href="#">同業交易</a>
+                        <a href="#">數位解決方案</a>
+                        <a href="#">分銷&行銷提案</a>
+                    </div>
+                    <div class="use_sometrip">
+                        <p>使用條款</p>
+                        <a href="#">使用條款</a>
+                        <a href="#">隱私政策</a>
+                        <a href="#">Cookie政策</a>
+                        <a href="#">技術問題懸賞方案</a>
+                    </div>
+                    <div class="contact_us">
+                        <p>聯絡我們</p>
+                        <div class="app">
+                            <div class="app_pic">
+                                <img src="pic/facebook.png" alt="">
+                            </div>
+                            <div class="app_pic">
+                                <img src="pic/instagram.png" alt="">
+                            </div>
+                            <div class="app_pic">
+                                <img src="pic/twitter.png" alt="">
+                            </div>
+                            <div class="app_pic">
+                                <img src="pic/wechat.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+</body>
+</html>
